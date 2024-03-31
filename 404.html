@@ -1,40 +1,99 @@
 <!DOCTYPE html>
- <!--
-     MIT lisence
-     Created by aflasio
-   -->
-<html lang="en">
-  <head>
-    <!-- metadata -->
-    <title>404</title>
-    <meta charset="utf-8" />
-    <meta name="description" content="What are you trying to search?" />
-    <meta name="google-site-verification" content="..." />
-    <meta name="theme-color" content="#f5f5f5">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- favicon -->
-    <link rel="icon"
-      type="png/image"
-      href="/img/favicon.png" alt="favicon">
-    <!-- raleway fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <!-- use bulma -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <section class="hero is-fullheight is-light is-vcentered">
-      <!-- Hero content: will be in the middle -->
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title">
-            Error 404
-          </h1>
-          <h2 class="subtitle">
-            The page you're looking is doesn't exist or has been moved.<br>
-            Please go back to <strong><a href="/">Home</a></strong>
-          </h2>
-        </div>
-      </div>
-    </section>
-  </body>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エラー発生。</title>
+  <style>
+    @font-face {
+      font-family: 'JetBrains Mono';
+      src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: #FFF;
+      background-color: #141516;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-image: url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);
+    }
+
+    main {
+      text-align: center;
+    }
+
+    #logo {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    #logo img {
+      width: 300px;
+    }
+
+    #error {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    #error a {
+      color: #2BF;
+      padding: 3px 10px;
+      font-size: larger;
+      text-decoration: none;
+    }
+
+    #error a:hover {
+      color: #000;
+      background-color: #2BF;
+    }
+
+    h1 {
+      font-size: 60px;
+      color: #FE2;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-family: "JetBrains Mono";
+    }
+
+    @media (max-width: 768px) {
+      #logo img {
+        width: auto;
+        height: 380px;
+        opacity: .23;
+        position: fixed;
+        bottom: -30px;
+        left: -38%;
+        pointer-events: none;
+      }      
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <a id="logo" href="/">
+      <img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="to home" />
+    </a>
+    <div id="error">
+      <h1>エラー発生。</h1>
+      <h2 style="text-align: left;">404 NOT FOUND</h2>
+      <p style="text-align: left;">
+        <a href="/">首页</a>
+        <a onClick="history.back();">上一页</a>
+      </p>
+    </div>
+  </main>
+
+</body>
+
 </html>
