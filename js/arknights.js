@@ -174,7 +174,6 @@ class expands {
 let expand = new expands();
 class Code {
     constructor() {
-        this.mermaids = [];
         this.doAsMermaid = (item) => {
             let Amermaid = item.querySelector('.mermaid');
             item.outerHTML = '<div class="highlight mermaid">' + Amermaid.innerText + '</div>';
@@ -201,7 +200,7 @@ class Code {
         <span class="ex-title">${format(config.code.codeInfo, codeType, lineCount)}</span>
       </div>
       <div class="ex-content">${item.innerHTML}
-        <button class="code-copy" title="${config.code.copy}"></button>
+        <button class="code-copy"></button>
       </div>`;
             getElement('.code-copy', item).addEventListener('click', (click) => {
                 const button = click.target;
@@ -212,17 +211,13 @@ class Code {
                 }, 1200);
             });
         };
-        this.paintMermaid = () => {
-            if (typeof (mermaid) === 'undefined')
-                return;
-            mermaid.initialize(document.documentElement.getAttribute('theme-mode') === 'dark' ?
-                { theme: 'dark' } : { theme: 'default' });
-            if (typeof (mermaid.run) !== 'undefined') {
-                mermaid.run({ querySelector: '.mermaid' });
-            }
-            else {
-                mermaid.init();
-            }
+        this.clearMermaid = () => {
+            document.querySelectorAll('.mermaid').forEach((item) => {
+                let style = item.querySelector('style');
+                if (style) {
+                    style.remove();
+                }
+            });
         };
         this.findCode = () => {
             let codeBlocks = document.querySelectorAll('.highlight');
@@ -246,24 +241,12 @@ class Code {
                     }
                 });
             }
-            document.querySelectorAll('.mermaid').forEach((item) => {
-                this.mermaids.push(item.outerHTML);
-            });
+            mermaid.init();
+            this.clearMermaid();
             expand.setHTML();
-        };
-        this.resetMermaid = () => {
-            if (typeof (mermaid) === 'undefined')
-                return;
-            let id = 0;
-            document.querySelectorAll('.mermaid').forEach((item) => {
-                item.outerHTML = this.mermaids[id];
-                ++id;
-            });
-            this.paintMermaid();
         };
         this.findCode();
         document.addEventListener('pjax:success', this.findCode);
-        window.addEventListener('hexo-blog-decrypt', this.findCode);
     }
 }
 let code = new Code();
@@ -278,12 +261,11 @@ class Cursor {
         this.nowY = 0;
         this.attention = `a,input,button,textarea,
     .navBtnIcon,
-    #post-content img,
+    #post-bg img,
     .ex-header,
     .gt-user-inner,
-    .wl-sort>li,
-    #valine .vicon,#valine .vat,
-    .lg-container img,.clickable`;
+    .lg-container img,
+    .wl-sort>li,.vicon,.clickable`;
         this.set = (X = this.nowX, Y = this.nowY) => {
             this.outer.transform =
                 `translate(calc(${X.toFixed(2)}px - 50%),
@@ -372,7 +354,7 @@ class Cursor {
         observer.observe(document, { childList: true, subtree: true });
     }
 }
-new Cursor();
+window.onload = () => new Cursor();
 class Index {
     constructor() {
         this.lastIndex = -1;
@@ -444,9 +426,8 @@ class Index {
             }
             catch { }
         };
-        this.setHTML();
         document.addEventListener('pjax:success', this.setHTML);
-        window.addEventListener('hexo-blog-decrypt', this.setHTML);
+        this.setHTML();
         getElement('main').addEventListener('scroll', () => {
             if (this.tocLink.length) {
                 this.modifyIndex();
@@ -498,9 +479,10 @@ class Header {
             }
         };
         this.inHeader = (mouse) => {
-            let range = this.header.getBoundingClientRect();
-            if (mouse.clientX < range.x || mouse.clientY < range.y ||
-                mouse.clientX > range.right || mouse.clientY > range.bottom) {
+            let item = mouse.target;
+            while (item !== this.header && item !== document.body)
+                item = getParent(item);
+            if (item !== this.header) {
                 this.close();
             }
         };
@@ -556,8 +538,12 @@ class Header {
         this.button.onclick = () => this.reverse(this.header);
         document.querySelectorAll('.navItemList').forEach((item) => {
             item = getParent(item);
+            if (item.classList.contains('navBlock')) {
+                item = getParent(item);
+            }
             item.addEventListener('click', (event) => {
-                if (getParent(event.target) === item) {
+                if (getParent(event.target) === item ||
+                    getParent(event.target, 2) === item) {
                     this.reverse(item);
                 }
             });
@@ -576,6 +562,7 @@ class Scroll {
         this.notMoveY = false;
         this.reallyUp = false;
         this.intop = false;
+        this.lastID = -1;
         this.scrolltop = () => {
             getElement('main').scroll({ top: 0, left: 0, behavior: 'smooth' });
             this.totop.style.opacity = '0';
@@ -673,11 +660,13 @@ class Scroll {
                 this.height = 0;
                 this.visible = false;
                 this.totop = getElement('#to-top');
-                this.setListener();
             }
             catch (e) { }
         };
         this.checkTouchMove = (event) => {
+            if (event.changedTouches[0].identifier === this.lastID) {
+                return;
+            }
             if (Math.abs(event.changedTouches[0].screenX - this.touchX) > 50 &&
                 !this.reallyUp) {
                 this.notMoveY = true;
@@ -689,8 +678,9 @@ class Scroll {
                 document.querySelector('.moving')) {
                 return;
             }
-            if (this.intop || getElement('article').getBoundingClientRect().top >= 0) {
+            if (getElement('article').getBoundingClientRect().top >= 0) {
                 this.reallyUp = true;
+                this.lastID = event.changedTouches[0].identifier;
                 if (event.changedTouches[0].screenY > this.touchY) {
                     this.slideUp();
                 }
@@ -705,40 +695,15 @@ class Scroll {
             this.touchY = event.changedTouches[0].screenY;
             this.notMoveY = false;
         };
-        this.checkPos = () => {
-            if (getElement('article').getBoundingClientRect().top < 0 && this.intop) {
-                this.slideDown();
-            }
-        };
-        /**
-         * used for `supScroll` and `footNoteScroll` functions
-         */
-        this.setListener = () => {
-            getElement('#post-content').addEventListener('click', this.supScroll);
-            getElement('#footnotes').addEventListener('click', this.footNoteScroll);
-        };
-        this.supScroll = (event) => {
-            const target = event.target;
-            const targetParent = getParent(target);
-            if (targetParent?.tagName === 'SUP') {
-                event.preventDefault();
-                const hash = target.href.split('/').pop()?.slice(1) || '';
-                document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
-                return;
-            }
-        };
-        this.footNoteScroll = (event) => {
-            const target = event.target;
-            if (target.tagName === 'A') {
-                event.preventDefault();
-                const hash = target.href.split('/').pop()?.slice(1) || '';
-                document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+        this.endTouch = (event) => {
+            if (event.changedTouches[0].identifier === this.lastID) {
+                this.lastID = -1;
             }
         };
         document.addEventListener('pjax:success', this.setHTML);
         document.addEventListener('touchstart', this.startTouch);
         document.addEventListener('touchmove', this.checkTouchMove);
-        document.addEventListener('touchend', this.checkPos);
+        document.addEventListener('touchend', this.endTouch);
         document.addEventListener('wheel', (event) => {
             if (document.querySelector('.expanded') || window.innerWidth > 1024) {
                 return;
@@ -834,11 +799,7 @@ class ColorMode {
             background.innerHTML =
                 `<div style='background: var(--${this.dark ? 'dark' : 'light'}-background);
         height: 100vh; width: 100vw;
-        position: fixed; left: 0; top: 0; z-index: -99999;
-        background-attachment: fixed;
-        background-position: 50% 0;
-        background-repeat: no-repeat;
-        background-size: cover;'></div>`;
+        position: fixed; left: 0; top: 0; z-index: -99999;'></div>`;
             document.body.insertBefore(background, document.body.firstChild);
             this.btn.style.pointerEvents = 'none';
             setTimeout(() => {
@@ -855,7 +816,6 @@ class ColorMode {
                     window.localStorage['theme-mode'] = 'dark';
                 }
                 background.style.opacity = '0';
-                code.resetMermaid();
             });
             setTimeout(() => {
                 document.body.removeChild(background);
