@@ -2541,7 +2541,7 @@ main:not(.up) .search #search-header input {
   height: fit-content;
   max-height: 100vh;
   display: flex;
-  order: -1;
+  order: 1;
   flex-grow: 1;
   flex-direction: column;
 }
