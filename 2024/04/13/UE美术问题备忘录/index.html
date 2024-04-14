@@ -1,0 +1,240 @@
+<!DOCTYPE html><html class="appearance-auto" lang="en"><head><meta charset="UTF-8"><title>游戏艺术备忘单</title><meta name="description" content="Environment Artist"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="Game Art Cheatsheet游戏艺术备忘单Most common glitches in game art and how to solve them游戏美术中最常见的故障及其解决方法
+Troubleshooting tips for mesh issues, lighting bugs, particles, transparency, physics. The solutions can be applied in Unity, Unreal Engine, Godot and most other game engines.网格问题、光照错误、粒子、透明度、物理问题的故障排除提示。这些解决方案可应用于Unity、Unreal Engine、Godot和大多数其他游戏引擎。
+Find more.."><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Jshan's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">游戏艺术备忘单</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Game-Art-Cheatsheet%E6%B8%B8%E6%88%8F%E8%89%BA%E6%9C%AF%E5%A4%87%E5%BF%98%E5%8D%95"><span class="toc-text">Game Art Cheatsheet游戏艺术备忘单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Content-Troubleshooting%E5%86%85%E5%AE%B9%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94"><span class="toc-text">Content Troubleshooting内容疑难解答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Geometry%E5%87%A0%E4%BD%95%E5%AD%A6"><span class="toc-text">Geometry几何学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Materials%E6%9D%90%E6%96%99"><span class="toc-text">Materials材料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transparency%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-text">Transparency透明度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lighting%E7%81%AF%E5%85%89"><span class="toc-text">Lighting灯光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animation%E5%8A%A8%E7%94%BB"><span class="toc-text">Animation动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Physics"><span class="toc-text">Physics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contributing%E8%B4%A1%E7%8C%AE"><span class="toc-text">Contributing贡献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Credits%E5%88%B6%E4%BD%9C%E4%BA%BA%E5%91%98"><span class="toc-text">Credits制作人员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="toc-text">License许可证</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">游戏艺术备忘单</h1><time class="has-text-grey" datetime="2024-04-13T11:31:41.948Z">2024-04-13</time><article class="mt-2 post-content"><h1 id="Game-Art-Cheatsheet游戏艺术备忘单"><a href="#Game-Art-Cheatsheet游戏艺术备忘单" class="headerlink" title="Game Art Cheatsheet游戏艺术备忘单"></a>Game Art Cheatsheet游戏艺术备忘单</h1><p><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/"><strong>Most common glitches in game art and how to solve them</strong></a><br><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/"><strong>游戏美术中最常见的故障及其解决方法</strong></a></p>
+<p>Troubleshooting tips for mesh issues, lighting bugs, particles, transparency, physics. The solutions can be applied in Unity, Unreal Engine, Godot and most other game engines.<br>网格问题、光照错误、粒子、透明度、物理问题的故障排除提示。这些解决方案可应用于Unity、Unreal Engine、Godot和大多数其他游戏引擎。</p>
+<p>Find more game dev tutorials at&nbsp;<a target="_blank" rel="noopener" href="https://techartaid.com/">TechArtAid.com</a><br>查找更多游戏开发教程：&nbsp;<a target="_blank" rel="noopener" href="https://techartaid.com/">TechArtAid.com</a></p>
+<h2 id="Content-Troubleshooting内容疑难解答"><a href="#Content-Troubleshooting内容疑难解答" class="headerlink" title="Content Troubleshooting内容疑难解答"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#content-troubleshooting"></a>Content Troubleshooting<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#content-troubleshooting"></a>内容疑难解答</h2><h3 id="Geometry几何学"><a href="#Geometry几何学" class="headerlink" title="Geometry几何学"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#geometry"></a>Geometry<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#geometry"></a>几何学</h3><table>
+<thead>
+<tr>
+<th>Name姓名</th>
+<th>Symptom症状</th>
+<th>Cause</th>
+<th>Solutions解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://techartaid.com/img/cheatsheet/geo-aliased-lines.gif"><img src="https://techartaid.com/img/cheatsheet/geo-aliased-lines.gif"></a>  <br><strong>Aliased lines别名线</strong></td>
+<td>Thin geo like cables or fences jitters, disappears  <br>细小的地理物体如同电缆或栅栏一样抖动、消失</td>
+<td>Geometry is thinner than a single pixel几何形状比单个像素更细</td>
+<td>– Make LODs with thicker geo, different texture  <br>– Blend to a solid texture at far distance  <br>– Use a different anti-aliasing algorithm  <br>- 制作具有更厚地理、不同纹理的 LOD  <br>- 在远处混合成坚实的纹理  <br>- 使用不同的抗锯齿算法</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-flipped.png"><img src="https://techartaid.com/img/cheatsheet/geo-flipped.png"></a>  <br><strong>Flipped normals翻转法线</strong></td>
+<td>Mesh is inverted or partially invisible网格倒置或部分不可见</td>
+<td>Back faces of triangles are hidden by default (backface culling)  <br>三角形的背面默认情况下被隐藏（背面剔除）</td>
+<td>– Flip (reverse) vertex normals to face outside  <br>– If both sides needed, enabled two-sided rendering in material  <br>- 翻转（反向）顶点法线以使其朝向外部  <br>- 如果需要两面，启用材质的双面渲染</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-scale.png"><img src="https://techartaid.com/img/cheatsheet/geo-scale.png"></a>  <br><strong>Import scale进口规模</strong></td>
+<td>Model is huge or tiny after importing导入后模型过大或过小</td>
+<td>Different editors use 1 cm or 1 m as base unit  <br>不同的编辑器使用 1 厘米或 1 米作为基本单位</td>
+<td>-Make sure to follow correct physical dimensions when modelling  <br>– Set import or export scale to 0.01 or 100x  <br>- 建模时确保遵循正确的物理尺寸  <br>– 将导入或导出比例设置为 0.01 或 100x</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-temporal.gif"><img src="https://techartaid.com/img/cheatsheet/geo-temporal.gif"></a>  <br><strong>Temporal anti-aliasing时间抗锯齿</strong></td>
+<td>Ghosting. Meshes leave blurry trail when moving  <br>重影。 网格在移动时留下模糊的轨迹</td>
+<td>Temporal smoothing algorithms combine multiple frames over time for high quality  <br>时间平滑算法将多个帧随时间结合，以获得高质量</td>
+<td>– Make sure game keeps good, stable framerate, high resolution  <br>– If using vertex displacement in shader, add motion vectors support  <br>– For stability but lower quality, switch to FXAA anti-aliasing  <br>- 确保游戏保持良好、稳定的帧率、高分辨率  <br>- 如果在着色器中使用顶点位移，请添加运动矢量支持  <br>- 为了稳定但质量较低，请切换到 FXAA 抗锯齿</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-zfighting.gif"><img src="https://techartaid.com/img/cheatsheet/geo-zfighting.gif"></a>  <br><strong>Z-FightingZ-战斗</strong></td>
+<td>Flickering polygons闪烁的多边形</td>
+<td>Multiple polys have equal Z-depth in the same pixel  <br>同一像素中有多个多边形具有相同的 Z 深度</td>
+<td>– Make sure no polygons overlap on the same plane  <br>– Increase near clip distance in camera  <br>- 确保同一平面上没有多边形重叠  <br>- 增加相机中的近裁剪距离</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-split.png"><img src="https://techartaid.com/img/cheatsheet/geo-split.png"></a>  <br><strong>Split edges分割边缘</strong></td>
+<td>Holes appear in animated mesh动画网格中出现孔洞</td>
+<td>Vertices have two modes: shared or split  <br>顶点有两种模式：共享或分割</td>
+<td>– Merge vertices in your 3d software  <br>– Lock vertex normals instead of physically splitting edges  <br>– Use auto smooth groups  <br>– 在 3D 软件中合并顶点  <br>– 锁定顶点法线而不是物理分割边  <br>– 使用自动平滑组</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-vis-culling.gif"><img src="https://techartaid.com/img/cheatsheet/geo-vis-culling.gif"></a>  <br><strong>Visibility culling可见性裁剪</strong></td>
+<td>Mesh or particle system disappearing from certain positions  <br>从某些位置消失的网格或粒子系统</td>
+<td>Frustum or occlusion culling hides objects by their bounding boxes  <br>通过它们的边界框，视锥体或遮挡剔除隐藏对象</td>
+<td>– Check if occluders (geometry) are correct  <br>– Increase bounding box size  <br>- 检查遮挡物（几何）是否正确  <br>- 增加边界框大小</td>
+</tr>
+</tbody></table>
+<h3 id="Materials材料"><a href="#Materials材料" class="headerlink" title="Materials材料"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#materials"></a>Materials<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#materials"></a>材料</h3><table>
+<thead>
+<tr>
+<th>Name姓名</th>
+<th>Symptom症状</th>
+<th>Cause</th>
+<th>Solutions解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-filtering.png"><img src="https://techartaid.com/img/cheatsheet/mat-filtering.png"></a>  <br><strong>Bilinear mipmap filtering双线性mipmap过滤</strong></td>
+<td>Blurry textures at oblique angles倾斜角度的模糊纹理</td>
+<td>Bilinear filtering in perspective projection underestimates required mipmap level of a texture  <br>透视投影中的双线性过滤低估了纹理所需的 mipmap 级别</td>
+<td>– Use anisotropic texture filtering, if performance tradeoff is acceptable  <br>- 如果性能折衷可接受，则使用各向异性纹理过滤</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-srgb.png"><img src="https://techartaid.com/img/cheatsheet/mat-srgb.png"></a>  <br><strong>sRGB vs linearsRGB 与线性</strong></td>
+<td>Textures are too dark or washed out after import, or roughness is wrong  <br>导入后纹理过暗或褪色，或者粗糙度不正确</td>
+<td>Textures come in (at least) two formats: linear color or sRGB. Linear is used for data, while sRGB for human-readable color  <br>纹理（至少）有两种格式：线性颜色或 sRGB。线性用于数据，sRGB用于人类可读的颜色</td>
+<td>– In texturing programs, export albedo/diffuse as sRGB  <br>– In game engine, enable&nbsp;<code>sRGB</code>&nbsp;in albedo/diffuse textures  <br>– Disable sRGB (use linear) for data (roughness, masks)  <br>– 在纹理程序中，将反照率/漫反射导出为 sRGB  <br>– 在游戏引擎中，启用&nbsp;<code>sRGB</code>&nbsp;在反照率/漫反射纹理中  <br>– 禁用数据（粗糙度、掩模）的 sRGB（使用线性）</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-normal-flip.png"><img src="https://techartaid.com/img/cheatsheet/mat-normal-flip.png"></a>  <br><strong>Normal Y-axis sign普通 Y 轴符号</strong></td>
+<td>Normal map looks inverted法线贴图看起来颠倒了</td>
+<td>Some engines expect Y+ axis to mean “down”, while others consider it “up”  <br>一些引擎期望 Y+ 轴表示“向下”，而其他引擎则认为它是“向上”</td>
+<td>– Invert green channel of normal map  <br>-In Unreal, tick&nbsp;<code>Flip Green Channel</code>&nbsp;in texture  <br>- 反转法线贴图的绿色通道  <br>- 在虚幻中，勾选&nbsp;<code>翻转绿色通道</code>&nbsp;在纹理中</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-aliasing.gif"><img src="https://techartaid.com/img/cheatsheet/mat-aliasing.gif"></a>  <br><strong>Aliasing别名</strong></td>
+<td>Moire patterns, bloom flickering云纹图案，绽放闪烁</td>
+<td>Resolution is not dense enough to represent (aka sample) the content  <br>分辨率不够密集，无法表示（也称为采样）内容</td>
+<td>– Use smoother patterns in textures  <br>– Add soft radius to light sources  <br>– Blend to smoother texture by distance  <br>– Use different anti-aliasing algorithm  <br>- 在纹理中使用更平滑的图案  <br>- 为光源添加柔和的半径  <br>- 按距离混合到更平滑的纹理  <br>- 使用不同的抗锯齿算法</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-white-edge.png"><img src="https://techartaid.com/img/cheatsheet/mat-white-edge.png"></a>  <br><strong>Alpha bleeding阿尔法出血</strong></td>
+<td>White edges in textures with transparency  <br>具有透明度的纹理中的白色边缘</td>
+<td><a target="_blank" rel="noopener" href="https://ciechanow.ski/alpha-compositing/">Alpha compositing阿尔法合成</a></td>
+<td>– In Substance Painter, use&nbsp;<code>Dilation</code>&nbsp;mode when exporting  <br>-In Photoshop, fill the background by selecting alpha mask, inverting selection and use Fill &gt; Content Aware  <br>– Respect premultiplied alpha in shaders  <br>– 在 Substance Painter 中，使用&nbsp;<code>扩张</code>&nbsp;导出时的模式  <br>-在 Photoshop 中，通过选择 Alpha 蒙版、反转选择并使用“填充”&gt;“内容感知”来填充背景  <br>– 尊重着色器中的预乘 alpha</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-foliage-normals.png"><img src="https://techartaid.com/img/cheatsheet/mat-foliage-normals.png"></a>  <br><strong>Hard normals on foliage植被上的硬法线</strong></td>
+<td>Flat shading on foliage models, harshly disconnected from terrain  <br>树叶模型上的平坦阴影，与地形严重脱节</td>
+<td>Foliage mesh, made of big flat planes, is interpreted too literally by lighting  <br>树叶网格，由大块平面制成，被灯光过于字面解释</td>
+<td>– Use manually edited, up-pointing vertex normals  <br>– Read normal from terrain  <br>– 使用手动编辑的、向上的顶点法线  <br>– 从地形读取法线</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-nan.png"><img src="https://techartaid.com/img/cheatsheet/mat-nan.png"></a>  <br><strong>Negative or NaN color负色或 NaN 颜色</strong></td>
+<td>Black or deeply saturated squares on screen  <br>屏幕上显示黑色或深度饱和的方块</td>
+<td>Pixel’s color value is negative or not a number. This corrupts some algorithms (bloom)  <br>像素的颜色值为负数或不是数字。这会破坏一些算法（bloom）</td>
+<td>– Check for division-by-zero in shaders  <br>– Clamp values to [0,1] in shaders  <br>- 在着色器中检查是否存在除以零的情况  <br>- 在着色器中将数值限制在[0,1]之间</td>
+</tr>
+<tr>
+<td><strong>Edge bleeding边缘出血</strong></td>
+<td>Colors from another island of UV space bleeding into the borders of given one  <br>来自UV空间另一岛屿的颜色渗入给定空间的边界</td>
+<td>Bilinear texture filtering picks up information from neighboring texels, as it’s unaware of UV seams or image atlas items  <br>双线性纹理过滤会从相邻的纹理像素中获取信息，因为它不知道UV接缝或图像图集中的项目</td>
+<td>– Increase margins between UV islands  <br>– Add 1 pixel of space between items in tileset/atlas  <br>– In Substance Painter, use&nbsp;<code>Dilation</code>&nbsp;mode when exporting  <br>- 增加 UV 岛之间的边距  <br>- 在贴图集中的项目之间添加 1 个像素的间距  <br>- 在 Substance Painter 中，在导出时使用&nbsp;<code>膨胀</code>&nbsp;模式</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-banding.png"><img src="https://techartaid.com/img/cheatsheet/mat-banding.png"></a>  <br><strong>Banding in display显示中的条纹</strong></td>
+<td>Stepped gradients on screen屏幕上的分层渐变</td>
+<td>Transition between certain colors can’t be represented, due to display’s color precision  <br>由于显示器的颜色精度，某些颜色之间的过渡无法被表示</td>
+<td>– Add some film grain  <br>– Use dithering  <br>– Check if your post-process stack has HDR until very end  <br>- 添加一些胶片颗粒  <br>- 使用抖动  <br>- 检查您的后处理堆栈是否有 HDR 直到最后</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-tex-banding.png"><img src="https://techartaid.com/img/cheatsheet/mat-tex-banding.png"></a><br><br><strong>Banding in textures****纹理中的条纹</strong></td>
+<td>Stepped gradients in textures纹理中的阶梯渐变</td>
+<td>Lossy compression can’t represent subtle gradient  <br>有损压缩无法表达微妙的渐变</td>
+<td>– Use more contrast in your source textures (e.g. stronger normal map), then reduce it in shader  <br>- 在源纹理中增加更多对比度（例如增强法线贴图），然后在着色器中减少对比度</td>
+</tr>
+<tr>
+<td><strong>Half precision半精度</strong></td>
+<td>Pixelated procedural materials on mobile  <br>移动设备上的像素化程序材质</td>
+<td>Mobile devices optimize some values by storing them in 16 bits instead of 32  <br>移动设备通过将某些值存储为 16 位而不是 32 位来优化一些数值</td>
+<td>– Make your effects less dependent on precision (smooth flow maps, bigger features on texture)  <br>– Use modulo (%, fmod) on final time and UVs  <br>– Force full precision on variable  <br>- 使您的效果减少对精度的依赖（平滑的流程图、纹理上更大的特征）  <br>- 对最终时间和 UV 使用模数 (%, fmod)  <br>- 强制变量达到全精度</td>
+</tr>
+</tbody></table>
+<h3 id="Transparency透明度"><a href="#Transparency透明度" class="headerlink" title="Transparency透明度"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#transparency"></a>Transparency<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#transparency"></a>透明度</h3><table>
+<thead>
+<tr>
+<th>Name姓名</th>
+<th>Symptom症状</th>
+<th>Cause</th>
+<th>Solutions解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/trans-sorting.png"><img src="https://techartaid.com/img/cheatsheet/trans-sorting.png"></a>  <br><strong>Bad sorting of polygons多边形排序不良</strong></td>
+<td>Triangles of meshes or particles appear in wrong order  <br>网格或粒子的三角形以错误的顺序出现</td>
+<td>Game engines employ per-object sorting instead of per-triangle, for speed  <br>游戏引擎采用每个对象的排序，而不是每个三角形的排序，以提高速度</td>
+<td>– Split big objects into smaller ones  <br>– Move pivot closer to center of mesh  <br>– Use dithered opacity or cutout alpha for semi-solid objects  <br>– Hack: change draw priority (render queue) of shader  <br>- 将大型对象分割成较小的对象  <br>- 将枢轴移动到网格中心  <br>- 对半固体对象使用抖动不透明度或剪切 Alpha  <br>- Hack：更改着色器的绘制优先级（渲染队列）</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/trans-dof.png"><img src="https://techartaid.com/img/cheatsheet/trans-dof.png"></a>  <br><strong>Depth of field vs. transparents景深对比透明物体</strong></td>
+<td>Transparent objects are not affected by depth of field透明物体不受景深影响</td>
+<td>DoF reads the depth of the scene to perform blur. Translucent materials don’t write single depth  <br>DoF 读取场景的深度以执行模糊。半透明材质不会写入单一深度</td>
+<td>– Use cutout alpha (masked opacity) instead  <br>– In Unreal, enable Separate Translucency in material- Sometimes you can’t avoid it  <br>- 使用切割alpha（蒙版不透明度）代替  <br>- 在虚幻中，启用材质中的单独半透明 - 有时无法避免</td>
+</tr>
+</tbody></table>
+<h3 id="Lighting灯光"><a href="#Lighting灯光" class="headerlink" title="Lighting灯光"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#lighting"></a>Lighting<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#lighting"></a>灯光</h3><table>
+<thead>
+<tr>
+<th>Name姓名</th>
+<th>Symptom症状</th>
+<th>Cause</th>
+<th>Solutions解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-bleed.png"><img src="https://techartaid.com/img/cheatsheet/light-bleed.png"></a>  <br><strong>Lightmap bleeding光照贴图渗透</strong></td>
+<td>Dark or wrong mesh edges网格边缘暗或错误</td>
+<td>Bilinear filtering picks up information from neighboring texels  <br>双线性过滤从相邻的纹素中获取信息</td>
+<td>– Increase margins between UV islands  <br>– Increase mesh’s lightmap resolution  <br>- 增加 UV 岛之间的边距  <br>- 增加网格的光照贴图分辨率</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-shadow-acne.png"><img src="https://techartaid.com/img/cheatsheet/light-shadow-acne.png"></a>  <br><strong>Shadow acne阴影痤疮</strong></td>
+<td>Stepped shadows at certain angles特定角度下的阶梯阴影</td>
+<td>Shadow map’s resolution is not enough to represent the continuous surface  <br>阴影贴图的分辨率不足以表示连续表面</td>
+<td>– Play with shadow bias parameter in light’s settings  <br>– Increase shadow map resolution  <br>- 在灯光设置中调整阴影偏差参数  <br>- 增加阴影贴图分辨率</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-probes.png"><img src="https://techartaid.com/img/cheatsheet/light-probes.png"></a>  <br><strong>Missing reflection probes缺少反射探头</strong></td>
+<td>Black reflections on metals金属上的黑色反射</td>
+<td>Lack of reflection sources缺乏反射源</td>
+<td>– Make sure at least 1 reflection probe covers every area in the scene  <br>- 确保至少有1个反射探针覆盖场景中的每个区域</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-mobility.png"><img src="https://techartaid.com/img/cheatsheet/light-mobility.png"></a>  <br><strong>Movable SkyLight</strong>&nbsp;(UE4)<a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-mobility.png"><img src="https://techartaid.com/img/cheatsheet/light-mobility.png"></a>  <br><strong>可移动天窗</strong>&nbsp;(UE4)</td>
+<td>Black reflections on metals金属上的黑色反射</td>
+<td>SkyLight or all reflection probes have&nbsp;<code>Mobility</code>&nbsp;set to&nbsp;<code>Movable</code>  <br>SkyLight 或所有反射探头的&nbsp;<code>移动性</code>&nbsp;都设置为&nbsp;<code>可移动</code></td>
+<td>– Change their&nbsp;<code>Mobility</code>&nbsp;to&nbsp;<code>Static</code>  <br>– 将他们的&nbsp;<code>移动性</code>&nbsp;改为&nbsp;<code>静态的</code></td>
+</tr>
+<tr>
+<td><strong>Overlapping polygons重叠的多边形</strong></td>
+<td>Black spots in lightmaps光照贴图中的黑点</td>
+<td>Multiple triangles are baked to the same texel  <br>多个三角形被烘烤到相同的纹素</td>
+<td>– Make sure no UV islands overlap  <br>– Remove any overlapping geo in mesh &amp; level  <br>– Check for duplicate objects in level  <br>- 确保没有 UV 岛重叠  <br>- 删除网格和水平中任何重叠的几何  <br>- 检查关卡中是否有重复的对象</td>
+</tr>
+<tr>
+<td><strong>Dynamic lights limit动态灯光限制</strong></td>
+<td>Flickering lights闪烁的灯光</td>
+<td>Renderer reached a limit of light sources affecting the same pixel  <br>渲染器已达到影响同一像素的光源数量上限</td>
+<td>– Reduce # of lights overlapping in that place (change radius, move, delete)  <br>– Use static (baked) lights instead  <br>- 减少该位置重叠的灯光数量（更改半径、移动、删除）  <br>- 使用静态（烘焙）灯光替代</td>
+</tr>
+</tbody></table>
+<h3 id="Animation动画"><a href="#Animation动画" class="headerlink" title="Animation动画"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#animation"></a>Animation<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#animation"></a>动画</h3><table>
+<thead>
+<tr>
+<th>Name姓名</th>
+<th>Symptom症状</th>
+<th>Cause</th>
+<th>Solutions解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Root motion根部运动</strong></td>
+<td>Character “swims” or drifts far from pivot over time  <br>角色随着时间远离中心点“游动”或漂移</td>
+<td>Root bone transform in animation is updated to match character movement in game  <br>动画中的根骨骼变换已更新，以匹配游戏中角色的移动</td>
+<td>– Fix the loop, making sure it ends where it started  <br>– Disable root motion  <br>- 修复循环，确保循环结束时回到起点  <br>- 禁用根运动</td>
+</tr>
+</tbody></table>
+<h3 id="Physics"><a href="#Physics" class="headerlink" title="Physics"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#physics"></a>Physics</h3><table>
+<thead>
+<tr>
+<th>Name姓名</th>
+<th>Symptom症状</th>
+<th>Cause</th>
+<th>Solutions解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Tick rate滴答率</strong></td>
+<td>Fast objects fly through, skipping collision快速物体飞过，跳过碰撞</td>
+<td>Physics frame rate was not sufficient for the system to detect collision  <br>物理帧速率不足以让系统检测到碰撞</td>
+<td>– Use thicker collider  <br>– Enable continuous collision detection (CCD)  <br>- 使用更厚的碰撞器  <br>- 启用连续碰撞检测 (CCD)</td>
+</tr>
+</tbody></table>
+<h2 id="Contributing贡献"><a href="#Contributing贡献" class="headerlink" title="Contributing贡献"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#contributing"></a>Contributing<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#contributing"></a>贡献</h2><p>If you want something added or fixed, just&nbsp;<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/issues">add a new issue</a>&nbsp;on GitHub.<br>I welcome&nbsp;<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/pulls">pull requests</a>&nbsp;too! (though quality is expected)<br>如果您想要添加或修复某些内容，只需&nbsp;<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/issues">添加新问题</a>&nbsp;在 GitHub 上。<br>我欢迎&nbsp;<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/pulls">拉取请求</a>&nbsp;也！ （尽管质量是预期的）</p>
+<h2 id="Credits制作人员"><a href="#Credits制作人员" class="headerlink" title="Credits制作人员"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#credits"></a>Credits<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#credits"></a>制作人员</h2><p><a target="_blank" rel="noopener" href="http://oskarswierad.com/">Oskar Świerad</a>&nbsp;of&nbsp;<a target="_blank" rel="noopener" href="https://techartaid.com/">Tech Art Aid</a>&nbsp;is the original author and current maintainer.<br>Huge thanks to contibutors of examples from the&nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/Unity3D/comments/mlp0od/working_on_a_cheatsheet_for_content_issues_what/">Unity</a>,&nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/unrealengine/comments/mlp19p/working_on_a_cheatsheet_for_game_art_issues_what/">Unreal</a>&nbsp;Reddit threads and&nbsp;<a target="_blank" rel="noopener" href="https://twitter.com/TechArtAid/status/1379574278975332353">Twitter</a>.<br><a target="_blank" rel="noopener" href="http://oskarswierad.com/">奥斯卡·斯维拉德</a>&nbsp;的&nbsp;<a target="_blank" rel="noopener" href="https://techartaid.com/">科技艺术援助</a>&nbsp;是原作者和当前维护者。<br>非常感谢来自以下示例的贡献者&nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/Unity3D/comments/mlp0od/working_on_a_cheatsheet_for_content_issues_what/">统一</a>,&nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/unrealengine/comments/mlp19p/working_on_a_cheatsheet_for_game_art_issues_what/">虚幻</a>&nbsp;Reddit 主题和&nbsp;<a target="_blank" rel="noopener" href="https://twitter.com/TechArtAid/status/1379574278975332353">推特</a>.</p>
+<h2 id="License许可证"><a href="#License许可证" class="headerlink" title="License许可证"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#license"></a>License<a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#license"></a>许可证</h2><p>Feel free to share, copy, print and modify the document, under the terms of&nbsp;<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/blob/main/LICENSE">Apache License 2.0</a>.<br>请根据以下条款随意共享、复制、打印和修改该文档&nbsp;<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/blob/main/LICENSE">阿帕奇许可证 2.0</a>.</p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2024/04/01/hello-world%20copy%2012/" title="Hello World"><span class="has-text-weight-semibold">Next: Hello World</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="SJShan/SJShan.github.io" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/SJShan"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Jshan 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
