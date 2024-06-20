@@ -1,147 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <meta name="author" content="Jshan">
-
-
-    <meta name="subtitle" content="Jshanのblog">
-
-
-    <meta name="description" content="Environment Artist">
-
-
-
-
-
-<title>UE美术问题备忘录 | Jshan</title>
-
-
-
-    <link rel="icon" href="/blog/favicon.ico">
-
-
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
-</style>
-
-
-
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/blog/css/style.css">
-    
-
-
-
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/blog/js/menu.js"></script>
-    
-
-
-
-
-
-
-
-
-
-
-  <meta name="generator" content="Hexo 6.3.0">
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>UE美术问题备忘录 | Jshan</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://telegraph-image-4h0.pages.dev/file/7fba975ab8cf2de3bb056.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
-  <body>
-    <div class="mask-border">
-    </div>
-
-    <div class="wrapper">
-
-      <div class="header">
-  <div class="flex-container">
-    <div class="header-inner">
-      <div class="site-brand-container">
-        <a href="/blog/">
-          
-            Frame.
-          
-        </a>
-      </div>
-      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
-        Menu
-      </div>
-      <nav class="site-nav">
-        <ul class="menu-list">
-          
-            
-              <li class="menu-item">
-                <a href="/blog/">Home</a>
-              </li> 
-                   
-          
-            
-              <li class="menu-item">
-                <a href="/blog/archives/">Archive</a>
-              </li> 
-                   
-          
-            
-              <li class="menu-item">
-                <a href="/blog/categories/gallery/">Gallery</a>
-              </li> 
-                   
-          
-          
-        </ul>
-      </nav>
-    </div>
-  </div>
-</div>
-
-
-      <div class="main">
-        <div class="flex-container">
-          <article id="post">
-
-  
-    <div class="post-head">
-    <div class="post-info">
-        <div class="tag-list">
-            
-                
-                    <span class="post-tag">
-                        <a href="/blog/tags/Problem/">
-                            Problem
-                        </a>
-                    </span>    
-                           
-            
-        </div>
-        <div class="post-title">
-            
-            
-                UE美术问题备忘录
-            
-            
-        </div>
-        <span class="post-date">
-            Apr 13, 2024
-        </span>
-    </div>
-    <div class="post-img">
-        
-            <div class="h-line-primary"></div>
-              
-    </div>
-</div>
-    <div class="post-content">
-    <h1 id="游戏艺术备忘单"><a href="#游戏艺术备忘单" class="headerlink" title="游戏艺术备忘单"></a>游戏艺术备忘单</h1><p><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/"><strong>游戏美术中最常见的故障以及解决方法</strong></a></p>
+</head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>UE美术问题备忘录</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-04-13T11:31:41.948Z" id="date"> 2024-04-13</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-14T06:44:19.948Z" id="updated"> 2024-04-14</time></div></span></div></div><hr><div id="post-content"><h1 id="游戏艺术备忘单"><a href="#游戏艺术备忘单" class="headerlink" title="游戏艺术备忘单"></a>游戏艺术备忘单</h1><p><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/"><strong>游戏美术中最常见的故障以及解决方法</strong></a></p>
 <p>网格问题、光照错误、粒子、透明度、物理问题的故障排除提示。该解决方案可应用于Unity、Unreal Engine、Godot等大多数游戏引擎。</p>
 <p><a target="_blank" rel="noopener" href="https://techartaid.com/">在TechArtAid.com</a>上查找更多游戏开发教程<a target="_blank" rel="noopener" href="https://techartaid.com/"></a></p>
 <h2 id="内容疑难解答"><a href="#内容疑难解答" class="headerlink" title="内容疑难解答"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#content-troubleshooting"></a>内容疑难解答</h2><h3 id="几何学"><a href="#几何学" class="headerlink" title="几何学"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#geometry"></a>几何学</h3><table>
@@ -154,43 +51,43 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a target="_blank" rel="noopener" href="http://techartaid.com/img/cheatsheet/geo-aliased-lines.gif"><img src="https://techartaid.com/img/cheatsheet/geo-aliased-lines.gif"></a>  <br><strong>别名线</strong></td>
+<td><a target="_blank" rel="noopener" href="http://techartaid.com/img/cheatsheet/geo-aliased-lines.gif" class='item-img' data-src='https://techartaid.com/img/cheatsheet/geo-aliased-lines.gif'><img src="https://techartaid.com/img/cheatsheet/geo-aliased-lines.gif"></a>  <br><strong>别名线</strong></td>
 <td>电缆或栅栏等细小的地理物体会抖动、消失</td>
 <td>几何形状比单个像素更薄</td>
 <td>– 使用更厚的几何、不同的纹理制作 LOD  <br>– 远距离混合到实体纹理  <br>– 使用不同的抗锯齿算法</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-flipped.png"><img src="https://techartaid.com/img/cheatsheet/geo-flipped.png"></a>  <br><strong>翻转法线</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-flipped.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/geo-flipped.png'><img src="https://techartaid.com/img/cheatsheet/geo-flipped.png"></a>  <br><strong>翻转法线</strong></td>
 <td>网格反转或部分不可见</td>
 <td>默认情况下隐藏三角形的背面（背面剔除）</td>
 <td>– 翻转（反向）顶点法线以面向外部  <br>– 如果两侧都需要，则在材质中启用双面渲染</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-scale.png"><img src="https://techartaid.com/img/cheatsheet/geo-scale.png"></a>  <br><strong>进口规模</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-scale.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/geo-scale.png'><img src="https://techartaid.com/img/cheatsheet/geo-scale.png"></a>  <br><strong>进口规模</strong></td>
 <td>导入后模型太大或太小</td>
 <td>不同的编辑器使用 1 cm 或 1 m 作为基本单位</td>
 <td>- 建模时确保遵循正确的物理尺寸  <br>- 将导入或导出比例设置为 0.01 或 100x</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-temporal.gif"><img src="https://techartaid.com/img/cheatsheet/geo-temporal.gif"></a>  <br><strong>时间抗锯齿</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-temporal.gif" class='item-img' data-src='https://techartaid.com/img/cheatsheet/geo-temporal.gif'><img src="https://techartaid.com/img/cheatsheet/geo-temporal.gif"></a>  <br><strong>时间抗锯齿</strong></td>
 <td>重影。网格物体移动时会留下模糊的痕迹</td>
 <td>时间平滑算法随着时间的推移组合多个帧以获得高质量</td>
 <td>– 确保游戏保持良好、稳定的帧速率、高分辨率  <br>– 如果在着色器中使用顶点位移，请添加运动矢量支持  <br>– 为了稳定但质量较低，请切换到 FXAA 抗锯齿</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-zfighting.gif"><img src="https://techartaid.com/img/cheatsheet/geo-zfighting.gif"></a>  <br><strong>Z-战斗</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-zfighting.gif" class='item-img' data-src='https://techartaid.com/img/cheatsheet/geo-zfighting.gif'><img src="https://techartaid.com/img/cheatsheet/geo-zfighting.gif"></a>  <br><strong>Z-战斗</strong></td>
 <td>闪烁的多边形</td>
 <td>多个多边形在同一像素中具有相等的 Z 深度</td>
 <td>– 确保没有多边形重叠在同一平面上  <br>– 增加相机中的近剪辑距离</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-split.png"><img src="https://techartaid.com/img/cheatsheet/geo-split.png"></a>  <br><strong>分割边缘</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-split.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/geo-split.png'><img src="https://techartaid.com/img/cheatsheet/geo-split.png"></a>  <br><strong>分割边缘</strong></td>
 <td>动画网格中出现孔洞</td>
 <td>顶点有两种模式：共享或分割</td>
 <td>– 在 3D 软件中合并顶点  <br>– 锁定顶点法线而不是物理分割边  <br>– 使用自动平滑组</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-vis-culling.gif"><img src="https://techartaid.com/img/cheatsheet/geo-vis-culling.gif"></a>  <br><strong>可见性剔除</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/geo-vis-culling.gif" class='item-img' data-src='https://techartaid.com/img/cheatsheet/geo-vis-culling.gif'><img src="https://techartaid.com/img/cheatsheet/geo-vis-culling.gif"></a>  <br><strong>可见性剔除</strong></td>
 <td>网格或粒子系统从某些位置消失</td>
 <td>视锥体或遮挡剔除通过边界框隐藏对象</td>
 <td>– 检查遮挡物（几何形状）是否正确  <br>– 增加边界框大小</td>
@@ -206,43 +103,43 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-filtering.png"><img src="https://techartaid.com/img/cheatsheet/mat-filtering.png"></a>  <br><strong>双线性 mipmap 过滤</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-filtering.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-filtering.png'><img src="https://techartaid.com/img/cheatsheet/mat-filtering.png"></a>  <br><strong>双线性 mipmap 过滤</strong></td>
 <td>倾斜角度的模糊纹理</td>
 <td>透视投影中的双线性过滤低估了纹理所需的 mipmap 级别</td>
 <td>– 如果性能权衡可以接受，则使用各向异性纹理过滤</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-srgb.png"><img src="https://techartaid.com/img/cheatsheet/mat-srgb.png"></a>  <br><strong>sRGB 与线性</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-srgb.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-srgb.png'><img src="https://techartaid.com/img/cheatsheet/mat-srgb.png"></a>  <br><strong>sRGB 与线性</strong></td>
 <td>导入后纹理太暗或褪色，或者粗糙度错误</td>
 <td>纹理（至少）有两种格式：线性颜色或 sRGB。 Linear 用于数据，而 sRGB 用于人类可读的颜色</td>
 <td>– 在纹理程序中，将反照率/漫反射导出为 sRGB  <br>– 在游戏引擎中，启用<code>sRGB</code>反照率/漫反射纹理  <br>– 禁用数据（粗糙度、掩模）的 sRGB（使用线性）</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-normal-flip.png"><img src="https://techartaid.com/img/cheatsheet/mat-normal-flip.png"></a>  <br><strong>法线 Y 轴符号</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-normal-flip.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-normal-flip.png'><img src="https://techartaid.com/img/cheatsheet/mat-normal-flip.png"></a>  <br><strong>法线 Y 轴符号</strong></td>
 <td>法线贴图看起来是倒置的</td>
 <td>一些引擎期望 Y+ 轴表示“向下”，而其他引擎则认为它是“向上”</td>
 <td>- 反转法线贴图的绿色通道  <br>- 在虚幻中，<code>Flip Green Channel</code>在纹理中勾选</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-aliasing.gif"><img src="https://techartaid.com/img/cheatsheet/mat-aliasing.gif"></a>  <br><strong>混叠</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-aliasing.gif" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-aliasing.gif'><img src="https://techartaid.com/img/cheatsheet/mat-aliasing.gif"></a>  <br><strong>混叠</strong></td>
 <td>云纹图案，绽放闪烁</td>
 <td>分辨率不够密集，无法表示（也称为样本）内容</td>
 <td>– 在纹理中使用更平滑的图案  <br>– 为光源添加柔和的半径  <br>– 按距离混合到更平滑的纹理  <br>– 使用不同的抗锯齿算法</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-white-edge.png"><img src="https://techartaid.com/img/cheatsheet/mat-white-edge.png"></a>  <br><strong>阿尔法出血</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-white-edge.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-white-edge.png'><img src="https://techartaid.com/img/cheatsheet/mat-white-edge.png"></a>  <br><strong>阿尔法出血</strong></td>
 <td>具有透明度的纹理中的白色边缘</td>
 <td><a target="_blank" rel="noopener" href="https://ciechanow.ski/alpha-compositing/">阿尔法合成</a></td>
 <td>– 在 Substance Painter 中，<code>Dilation</code>导出时使用模式  <br>– 在 Photoshop 中，通过选择 alpha 蒙版、反转选择并使用“填充”&gt;“内容感知”来填充背景  <br>– 尊重着色器中的预乘 alpha</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-foliage-normals.png"><img src="https://techartaid.com/img/cheatsheet/mat-foliage-normals.png"></a>  <br><strong>叶子上的硬法线</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-foliage-normals.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-foliage-normals.png'><img src="https://techartaid.com/img/cheatsheet/mat-foliage-normals.png"></a>  <br><strong>叶子上的硬法线</strong></td>
 <td>树叶模型上的平坦阴影，与地形严重脱节</td>
 <td>树叶网格由大平面组成，通过照明来解释过于字面意义</td>
 <td>– 使用手动编辑的、向上的顶点法线  <br>– 从地形读取法线</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-nan.png"><img src="https://techartaid.com/img/cheatsheet/mat-nan.png"></a>  <br><strong>负色或 NaN 颜色</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-nan.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-nan.png'><img src="https://techartaid.com/img/cheatsheet/mat-nan.png"></a>  <br><strong>负色或 NaN 颜色</strong></td>
 <td>屏幕上出现黑色或深度饱和的方块</td>
 <td>像素的颜色值为负数或不是数字。这会破坏一些算法（bloom）</td>
 <td>– 检查着色器中是否被零除  <br>– 在着色器中将值限制为 [0,1]</td>
@@ -254,13 +151,13 @@
 <td>– 增加 UV 岛之间的边距  <br>– 在图块集/图集中的项目之间添加 1 像素的空间  <br>– 在 Substance Painter 中，<code>Dilation</code>导出时使用模式</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-banding.png"><img src="https://techartaid.com/img/cheatsheet/mat-banding.png"></a>  <br><strong>显示中的条带</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-banding.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-banding.png'><img src="https://techartaid.com/img/cheatsheet/mat-banding.png"></a>  <br><strong>显示中的条带</strong></td>
 <td>屏幕上的阶梯渐变</td>
 <td>由于显示器的颜色精度，无法表示某些颜色之间的过渡</td>
 <td>– 添加一些胶片颗粒  <br>– 使用抖动  <br>– 检查您的后期处理堆栈是否有 HDR 直到最后</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-tex-banding.png"><img src="https://techartaid.com/img/cheatsheet/mat-tex-banding.png"></a><br><br><strong>纹理中的条带</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/mat-tex-banding.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/mat-tex-banding.png'><img src="https://techartaid.com/img/cheatsheet/mat-tex-banding.png"></a><br><br><strong>纹理中的条带</strong></td>
 <td>纹理中的阶梯式渐变</td>
 <td>有损压缩无法表示细微的梯度</td>
 <td>– 在源纹理中使用更多对比度（例如更强的法线贴图），然后在着色器中减少它</td>
@@ -282,13 +179,13 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/trans-sorting.png"><img src="https://techartaid.com/img/cheatsheet/trans-sorting.png"></a>  <br><strong>多边形排序错误</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/trans-sorting.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/trans-sorting.png'><img src="https://techartaid.com/img/cheatsheet/trans-sorting.png"></a>  <br><strong>多边形排序错误</strong></td>
 <td>网格或粒子的三角形以错误的顺序出现</td>
 <td>游戏引擎采用按对象排序而不是按三角形排序，以提高速度</td>
 <td>– 将大对象分割成较小的对象  <br>– 将枢轴移动到更靠近网格中心的位置  <br>– 对半固体对象使用抖动不透明度或剪切 alpha  <br>– 技巧：更改着色器的绘制优先级（渲染队列）</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/trans-dof.png"><img src="https://techartaid.com/img/cheatsheet/trans-dof.png"></a>  <br><strong>景深与透明物体</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/trans-dof.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/trans-dof.png'><img src="https://techartaid.com/img/cheatsheet/trans-dof.png"></a>  <br><strong>景深与透明物体</strong></td>
 <td>透明物体不受景深影响</td>
 <td>DoF 读取场景的深度以执行模糊。半透明材质不写单一深度</td>
 <td>– 使用剪切阿尔法（蒙版不透明）  <br>– 在虚幻中，启用材质中的单独半透明 – 有时您无法避免它</td>
@@ -304,25 +201,25 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-bleed.png"><img src="https://techartaid.com/img/cheatsheet/light-bleed.png"></a>  <br><strong>光照贴图出血</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-bleed.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/light-bleed.png'><img src="https://techartaid.com/img/cheatsheet/light-bleed.png"></a>  <br><strong>光照贴图出血</strong></td>
 <td>网格边缘较暗或错误</td>
 <td>双线性过滤从相邻纹素中获取信息</td>
 <td>– 增加 UV 岛之间的边距  <br>– 增加网格的光照贴图分辨率</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-shadow-acne.png"><img src="https://techartaid.com/img/cheatsheet/light-shadow-acne.png"></a>  <br><strong>阴影痤疮</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-shadow-acne.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/light-shadow-acne.png'><img src="https://techartaid.com/img/cheatsheet/light-shadow-acne.png"></a>  <br><strong>阴影痤疮</strong></td>
 <td>特定角度的阶梯阴影</td>
 <td>阴影贴图的分辨率不足以表示连续表面</td>
 <td>– 在灯光设置中使用阴影偏差参数  <br>– 提高阴影贴图分辨率</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-probes.png"><img src="https://techartaid.com/img/cheatsheet/light-probes.png"></a>  <br><strong>缺少反射探头</strong></td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-probes.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/light-probes.png'><img src="https://techartaid.com/img/cheatsheet/light-probes.png"></a>  <br><strong>缺少反射探头</strong></td>
 <td>金属上的黑色反光</td>
 <td>缺乏反射源</td>
 <td>– 确保至少 1 个反射探头覆盖场景中的每个区域</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-mobility.png"><img src="https://techartaid.com/img/cheatsheet/light-mobility.png"></a>  <br><strong>可移动天窗</strong>(UE4)</td>
+<td><a target="_blank" rel="noopener" href="https://techartaid.com/img/cheatsheet/light-mobility.png" class='item-img' data-src='https://techartaid.com/img/cheatsheet/light-mobility.png'><img src="https://techartaid.com/img/cheatsheet/light-mobility.png"></a>  <br><strong>可移动天窗</strong>(UE4)</td>
 <td>金属上的黑色反光</td>
 <td>天光或所有反射探头已<code>Mobility</code>设置为<code>Movable</code></td>
 <td>– 将其更改<code>Mobility</code>为<code>Static</code></td>
@@ -375,61 +272,4 @@
 <h2 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#contributing"></a>贡献</h2><p>如果您想要添加或修复某些内容，只需在 GitHub 上<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/issues">添加新问题</a><br>即可。我也欢迎<a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/pulls">拉取请求</a>！ （尽管质量是预期的）</p>
 <h2 id="制作人员"><a href="#制作人员" class="headerlink" title="制作人员"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#credits"></a>制作人员</h2><p><a target="_blank" rel="noopener" href="http://oskarswierad.com/"></a><a target="_blank" rel="noopener" href="https://techartaid.com/">Tech Art Aid</a>的<a target="_blank" rel="noopener" href="http://oskarswierad.com/">Oskar Świerad</a>是原作者和当前维护者。非常感谢来自<a target="_blank" rel="noopener" href="https://www.reddit.com/r/Unity3D/comments/mlp0od/working_on_a_cheatsheet_for_content_issues_what/">Unity</a>、<a target="_blank" rel="noopener" href="https://www.reddit.com/r/unrealengine/comments/mlp19p/working_on_a_cheatsheet_for_game_art_issues_what/">Unreal</a>&nbsp;Reddit 线程和<a target="_blank" rel="noopener" href="https://twitter.com/TechArtAid/status/1379574278975332353">Twitter</a><br>的示例贡献者。<a target="_blank" rel="noopener" href="https://www.reddit.com/r/Unity3D/comments/mlp0od/working_on_a_cheatsheet_for_content_issues_what/"></a><a target="_blank" rel="noopener" href="https://www.reddit.com/r/unrealengine/comments/mlp19p/working_on_a_cheatsheet_for_game_art_issues_what/"></a><a target="_blank" rel="noopener" href="https://twitter.com/TechArtAid/status/1379574278975332353"></a></p>
 <h2 id="执照"><a href="#执照" class="headerlink" title="执照"></a><a target="_blank" rel="noopener" href="https://techartaid.com/cheatsheet/#license"></a>执照</h2><p><a target="_blank" rel="noopener" href="https://github.com/OskarSwierad/game-art-cheatsheet/blob/main/LICENSE">请根据Apache License 2.0</a>的条款随意共享、复制、打印和修改该文档。</p>
-
-</div> 
-
-<script>
-    window.onload = detectors();
-</script>
-    <div class="post-footer">
-    <div class="h-line-primary"></div>
-    <nav class="post-nav">
-        <div class="prev-item">
-           
-        </div>
-        <div class="next-item">
-            
-                <div class="icon arrow-right"></div>
-                <div class="post-link">
-                  <a href="/blog/2024/03/31/%E8%A7%86%E9%A2%91%E6%B5%8B%E8%AF%95/">Next</a>  
-                </div>  
-            
-        </div>
-    </nav>
-</div>
-
-    
-      <div class="post-comment">
-
-     
-
-     
-    
-    
-
-</div>
-     
-  
-</article>
-        </div>
-      </div>
-      
-      <div class="footer">
-    <div class="flex-container">
-        <div class="footer-text">
-            
-            
-            
-                Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://github.com/zoeingwingkei/frame/">Frame</a>
-                
-        </div>
-    </div>
-</div>
-
-    </div>
-
-    
-    
-
-  </body>
-</html>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/31/%E8%A7%86%E9%A2%91%E6%B5%8B%E8%AF%95/">视频测试 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Jshan</a></h1><div id="description"><p>Environment Artist</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/SJShan"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:2644795130@qq.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/27948672"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%89%BA%E6%9C%AF%E5%A4%87%E5%BF%98%E5%8D%95"><span class="toc-number">1.</span> <span class="toc-text">游戏艺术备忘单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94"><span class="toc-number">1.1.</span> <span class="toc-text">内容疑难解答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%AD%A6"><span class="toc-number">1.1.1.</span> <span class="toc-text">几何学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%90%E8%B4%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">材质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-number">1.1.3.</span> <span class="toc-text">透明度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%81%AF%E5%85%89"><span class="toc-number">1.1.4.</span> <span class="toc-text">灯光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%89%87"><span class="toc-number">1.1.5.</span> <span class="toc-text">动画片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86"><span class="toc-number">1.1.6.</span> <span class="toc-text">物理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A1%E7%8C%AE"><span class="toc-number">1.2.</span> <span class="toc-text">贡献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B6%E4%BD%9C%E4%BA%BA%E5%91%98"><span class="toc-number">1.3.</span> <span class="toc-text">制作人员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E7%85%A7"><span class="toc-number">1.4.</span> <span class="toc-text">执照</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
